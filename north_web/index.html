@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NORTH.IO Don't Loose the North with Your Data.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+    
+    <!-- north style -->
+    <link rel="stylesheet" href="/css/north.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <div id="wrap">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">North</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="http://github.com/">GitHub</a></li>
+            <li><a href="mailto:hello@north.io">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="n-anounce-div">
+        <!--<img src="img/logo_big_text2.png"/>-->
+        <div id="logo"></div>
+        <h1>Don't Loose the North with Your Data</h1>
+        <p class="lead">Open Source - Do It Yourself - Easy - Business Intelligence<br/>
+        Expect it soon in your area :-) <a href="https://twitter.com/northbi">@northbi</a></p>
+      </div>
+      
+	<div id="push"></div>
+    </div><!-- /.container -->
+
+  </div>
+  <div id="footer">
+    <div class="container">
+	<p class="muted credit">&copy; north.io 2014. Logo sourtesy <a href="http://thenounproject.com/iconoci/">iconoci</a>.</p>
+    </div>
+  </div>
+    
+
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script>
+        jQuery.fn.changeLocor = function (color) {
+            //alert(color);
+            $(this).animate({
+                backgroundColor: color,
+            }, 3000 );
+            //return this;
+        };
+        
+        setInterval(function(){
+            $("#logo").changeLocor("#d75200");
+            $("#logo").changeLocor("#282a2e");
+        },2000);
+
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-47522156-1', 'north.io');
+      ga('send', 'pageview');
+    
+    </script>
+  </body>
+</html>

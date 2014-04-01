@@ -1,0 +1,44 @@
+/*
+ *  COLOURS
+ *  
+ *  Orange: #ff6e14
+ *  Light Brown: #d75200
+ *  Dark Red: #b10c1b
+ *  Dark Brown: #5f060e
+ *  Pink: #ffaa75
+ *  Black: #282a2e
+ *  Dark Grey: #494e54
+ *  Grey: #6d737d
+ *  Lighter Grey: #c2c5c9
+ *  Light Grey: #d1d3d7
+ *  Green: #6cc644
+ */
+
+.configureDashB {
+    padding: 20px 6px;
+    height: auto !important;
+    overflow: hidden;
+    
+}
+
+.chart-holder {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.configureDashField {
+    margin-right: 4px;
+}
+
+.dashBElement {
+    position: relative;
+    line-height: inherit;
+    padding: 3px 5px 3px 19px;
+    margin: 3px 5px 3px 0;
+    border-radius: 3px;
+    background-color: #e4e4e4;
+    line-height: 13px;
+    border: 1px solid #aaa;
+    display:inline;
+}

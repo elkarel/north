@@ -1,0 +1,93 @@
+<script type="text/javascript">
+  
+  $(function () { $('#tree').jstree({
+    'core' : {
+      'data' : <%- JSON.stringify(treeData) %>,
+      'check_callback' : true
+    },
+    'plugins' : [ "dnd","state" ],
+    'state' : { "key" : "state_opened_closed" },
+    });
+    
+    $('.jstree').on('mousedown', function (e) {
+         return $.vakata.dnd.start(e, { 'jstree' : true, 'obj' : $(this), 'nodes' : [{ id : true, text: $(this).text() }] }, '<div id="jstree-dnd" class="jstree-default"><i class="jstree-icon jstree-er"></i>' + $(this).text() + '</div>');
+     });
+    
+    $(document).on('dnd_move.vakata', function (e, data) {
+      //console.log('dnd_move.vakata '+data.event.target);
+      var t = $(data.event.target);
+      if(!t.closest('#jstree').length) {
+          if(t.closest('.configureDashB').length) {
+              data.helper.find('.jstree-icon').removeClass('jstree-er').addClass('jstree-ok');
+          }
+          else {
+              data.helper.find('.jstree-icon').removeClass('jstree-ok').addClass('jstree-er');
+          }
+      }
+     }).on('dnd_stop.vakata', function (e, data) {
+        var t = $(data.event.target);
+        if(!t.closest('#jstree').length) {
+          if(t.closest('.configureDashB').length) {
+              //console.log(JSON.stringify(data));
+              $('<li class="ui-widget-content ui-state-default ui-corner-all dashBElement"><span>'+data.element.innerHTML+'</span><a class="tagit-close"><span class="text-icon">×</span></a></li>')
+                .appendTo(t.closest('.configureDashB'));
+              /*$('<button type="button" class="btn btn-success configureDashField">'+data.element.innerHTML+'</button>')
+                .appendTo(t.closest('.configureDashB'));*/
+              /*$(data.element).clone()
+                .addClass("configureDashField")
+                //.removeClass("jstree-anchor")
+                .removeClass("jstree-clicked")
+                .appendTo(t.closest('.configureDashB'));
+                */
+              // node data: 
+              // if(data.data.jstree && data.data.origin) { console.log(data.data.origin.get_node(data.element); }
+          }
+        }
+     });
+    
+    })
+  
+  
+  
+</script>
+
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3" id="tree" role="tree">
+    </div>
+    <div class="span9">
+      <!--
+      <h1><%= title %></h1>
+      <p>Welcome to <%= title %></p>
+      -->
+      <div class="portlet-header">
+        <h3>Columns</h3>
+      </div>
+      <!--<div class="portlet-content configureDashB">
+        <button type="button" class="btn btn-success">Default button</button>
+      </div>-->
+      <ul class="ui-widget ui-widget-content ui-corner-all configureDashB"></ul>
+    </div>
+    
+    <div class="span9">
+      <div class="portlet-header">
+        <h3>Rows</h3>
+      </div>
+      <!--<div class="portlet-content configureDashB">
+        <button type="button" class="btn btn-success">Default button</button>
+      </div>-->
+      <ul class="ui-widget ui-widget-content ui-corner-all configureDashB"></ul>
+    </div>
+    
+    <div class="span9">
+      <div id="line-chart" class="chart-holder"></div>
+    </div>
+    
+  </div>
+</div>
+
